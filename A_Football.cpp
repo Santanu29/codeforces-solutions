@@ -3,24 +3,25 @@ using namespace std;
 
 int main()
 {
-	string s;
-	cin >> s;
-
-	int count = 1;
-	for (int i = 1; i < s.length(); i++)
+	int n;
+	cin >> n;
+	string t1, t2;
+	int c1 = 0, c2 = 0;
+	for (int i = 0; i < n; i++)
 	{
-		if (s[i] != s[i - 1])
-			count = 1;
+		string s;
+		cin >> s;
+		if (s == t1 || t1 == "")
+		{
+			t1 = s;
+			c1++;
+		}
 		else
 		{
-			count++;
-			if (count == 7)
-			{
-				cout << "YES";
-				return 0;
-			}
+			t2 = s;
+			c2++;
 		}
 	}
-	cout << "NO";
+	cout << (c1 > c2 ? t1 : t2) << endl;
 	return 0;
 }
